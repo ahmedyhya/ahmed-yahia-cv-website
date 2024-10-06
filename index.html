@@ -3,138 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Yahia Mustafa - CV</title>
+    <title>Ahmed Yahia - CV</title>
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
         body {
             font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f4f4f4;
-            color: #333;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--background-color);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1, h2 {
-            color: #0056b3;
+            color: var(--secondary-color);
+        }
+        h1 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            animation: slideInFromLeft 1s ease-out;
+        }
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        h2 {
+            margin-top: 30px;
+            animation: slideInFromRight 1s ease-out;
+        }
+        @keyframes slideInFromRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .contact-info {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        .work-experience, .education, .skills, .certificates, .languages, .internships, .projects {
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .work-experience:hover, .education:hover, .skills:hover, .certificates:hover, .languages:hover, .internships:hover, .projects:hover {
+            transform: translateY(-5px);
+        }
+        .work-experience h3, .education h3 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        .work-experience p, .education p {
+            margin-top: 0;
         }
         ul {
-            list-style-type: none;
-            padding: 0;
+            padding-left: 20px;
         }
-        li {
-            margin: 5px 0;
-        }
-        .section {
-            margin-bottom: 30px;
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Ahmed Yahia Mustafa</h1>
-        <p>Solutions Architect & Observability Consultant</p>
-        <p>Email: <a href="mailto:ahmedyhya8594@gmail.com">ahmedyhya8594@gmail.com</a> | Phone: +201012275280</p>
-        <p><a href="https://www.linkedin.com/in/ahmed-yahia-428071191">LinkedIn Profile</a></p>
-    </header>
+    <h1>Ahmed Yahia</h1>
+    <div class="contact-info">
+        <p>Observability Consultant and System Architect</p>
+        <p>Email: ahmedyhya8594@gmail.com</p>
+        <p>Phone: KSA +9665759656927</p>
+    </div>
 
-    <section class="section">
-        <h2>About Me</h2>
-        <p>As a Solutions Architect and Monitoring Consultant, I design and implement Monitoring, Observability, and Automation solutions, creating High-Level and Low-Level Designs (HLD/LLD) to ensure comprehensive management across large distributed IT environments. My expertise spans various monitoring tools, including NPM, APM, and Visualization Portals, and I handle custom solution implementations, client requests, and system upgrades to support business growth.</p>
-    </section>
+    <h2>Field of Experience</h2>
+    <p>As a Solutions Architect and Monitoring Consultant, I design and implement Monitoring, Observability, and Automation solutions, creating High-Level and Low-Level Designs (HLD/LLD) to ensure comprehensive management across large distributed IT environments. My expertise includes tools like NPM, APM, and Visualization Portals from various vendors such as IBM, Microfocus, Zabbix, Cribl, and Riverbed where I deliver customized solutions, handle customer requests, and manage architecture integrations, upgrades, and migrations to support business growth while ensuring smooth IT operations management.</p>
 
-    <section class="section">
-        <h2>Experience</h2>
-
-        <h3>Solutions Architect - Vodafone Intelligent Solutions</h3>
-        <p>December 2021 - Present</p>
-        <ul>
-            <li>Delivered high-level and low-level design documents for monitoring, observability, and automation projects across various business services.</li>
-            <li>Supported implementation and delivery teams as a subject matter expert.</li>
-            <li>Explored new IT technologies like observability, automatic correlation, and developed automation standards.</li>
-            <li>Worked on Proof of Concepts (POCs) with vendors and defined acceptance criteria for management tools.</li>
-        </ul>
-
+    <h2>Work Experience</h2>
+    <div class="work-experience">
         <h3>Riverbed Monitoring Consultant</h3>
-        <p>February 2020 - December 2021</p>
+        <p>Riverbed | February 2024 - Present</p>
         <ul>
-            <li>Implemented and administered Riverbed monitoring tools, including NetIM, NetProfiler, AppResponse, APM, Portal, and EUEM.</li>
-            <li>Provided expert-level L3 support, troubleshooting complex monitoring-related issues.</li>
-            <li>Developed custom dashboards for network performance monitoring, application latency, and user experience metrics.</li>
+            <li>Implementation of Riverbed Monitoring Tools</li>
+            <li>Administration and Tool Management</li>
+            <li>Dashboard Creation and Monitoring</li>
+            <li>Troubleshooting and Incident Management</li>
+            <li>Customer Support and Consultation</li>
+            <li>Tools Integration and Automation</li>
         </ul>
+    </div>
 
-        <h3>ITOM Consultant - Saudi Basic Industries Corporation (SABIC)</h3>
-        <p>August 2019 - December 2021</p>
+    <div class="work-experience">
+        <h3>Observability Solution Architect</h3>
+        <p>Vodafone Intelligent Solutions | December 2021 - January 2024</p>
         <ul>
-            <li>Implemented performance monitoring for various IT services, including application and database monitoring.</li>
-            <li>Delivered custom monitoring solutions for infrastructure, application response times, and SLAs.</li>
-            <li>Created automated dashboards and participated in incident and problem management activities.</li>
+            <li>Delivered High level and Low level design documents for monitoring, observability, and automation projects</li>
+            <li>Acted as subject matter expert for implementation and delivery teams</li>
+            <li>Drove development of new capabilities for IT Operations</li>
+            <li>Explored new IT Technologies such as Observability and Automatic correlation</li>
+            <li>Worked with IT Vendors on POC's and defining acceptance criteria for management tools</li>
         </ul>
+    </div>
 
-        <h3>Implementation Engineer - Tawuniya Insurance Company</h3>
-        <p>June 2018 - August 2019</p>
+    <div class="work-experience">
+        <h3>ITOM Consultant</h3>
+        <p>Saudi Basic Industries Corporation | August 2019 - December 2021</p>
         <ul>
-            <li>Led the end-to-end implementation of performance monitoring projects at Tawuniya, including application, database, infrastructure, and SLA monitoring.</li>
-            <li>Provided operational support and managed infrastructure monitoring tasks.</li>
-            <li>Delivered knowledge transfer sessions to IT administrators.</li>
+            <li>Operation Support L2 engineer in SABIC, MEA IOC</li>
+            <li>Created custom monitoring dashboards for Business and Operational Teams</li>
+            <li>Managed classification, investigation, and resolution of IT incidents</li>
+            <li>Participated in monitoring and observability POC's as a service owner</li>
         </ul>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2>Education</h2>
+    <div class="work-experience">
+        <h3>ITOM Engineer</h3>
+        <p>Outsourced from Fingerprint Consultancy in Tauwnyia Insurance Company | January 2018 - July 2019</p>
+        <ul>
+            <li>Responsible for the implementation of the end-to-end IBM monitoring project</li>
+            <li>Created custom monitoring dashboards</li>
+            <li>Managed classification, investigation, and resolution of IT incidents</li>
+            <li>Participated in Incident Management and Problem Management processes</li>
+            <li>Delivered knowledge transfer sessions for IT administrators</li>
+        </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="education">
         <h3>Bachelor of Computer Engineering</h3>
-        <p>Cairo University, 2012 - 2017</p>
-    </section>
+        <p>Cairo University | 2012 - 2017</p>
+        <p>Cumulative score: Very Good</p>
+    </div>
 
-    <section class="section">
-        <h2>Skills</h2>
+    <div class="education">
+        <h3>High School</h3>
+        <p>El-Motafawqeen Language High School | 2009 - 2012</p>
+        <p>Score: 407/410 (99.6%)</p>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="skills">
         <ul>
-            <li>IT Monitoring: Microfocus NNMI, Zabbix, Cribl, Riverbed NetIM, NetProfiler, AppResponse, APM</li>
-            <li>Automation: Selenium, UI-Path</li>
-            <li>Programming Languages: C++, Python, JavaScript</li>
-            <li>Cloud Platforms: AWS, IBM Cloud</li>
+            <li>ITOM (IT Operation Management) and IT Monitoring using IBM, Microfocus, Zabbix, AppDynamics</li>
+            <li>IT Automation using Selenium, Resolve, and UI-Path tools</li>
+            <li>IT Observability</li>
+            <li>SAFE Agile</li>
+            <li>Cloud management</li>
+            <li>Problem and Incident Management</li>
+            <li>Data and Log Analytics using IBM tools & Splunk</li>
+            <li>Programming (C++, C#, C, Python, JS, TS)</li>
+            <li>QA and QC</li>
+            <li>Game development (OpenCV) & Image processing</li>
+            <li>Linux, Windows administration</li>
+            <li>SQL, DB2 administration</li>
+            <li>Teaching and Training</li>
         </ul>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2>Certifications</h2>
-        <ul>
-            <li>TOGAF Fundamentals Certified</li>
-            <li>SAFE Agile Certified</li>
-            <li>AWS Certified Cloud Practitioner</li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>Technical Skills</h2>
+    <h2>Certificates</h2>
+    <div class="certificates">
         <ul>
             <li>Microfocus NNMI, NPS, OBM, APM, OO</li>
             <li>Zabbix Fundamentals</li>
-            <li>Cribl Admin and Observability Tools</li>
-            <li>UI-Path RPA Solutions Architect Certified</li>
-            <li>AWS: Data Analytics, Machine Learning, Deep Learning</li>
-            <li>IBM Netcool, IBM Operation Analytics, ITM</li>
+            <li>Cribl Admin and user for Observability</li>
+            <li>UI-PATH RPA Solutions architect Certificate</li>
+            <li>TOGAF fundamentals certified</li>
+            <li>IELTS (score 7)</li>
+            <li>SAFE Agile Certified</li>
+            <li>IMT advanced Diploma for Embedded Systems</li>
+            <li>IBM Netcool/OmniBus (Omnibus Core, Impact, WebGUI)</li>
+            <li>IBM Operation Analytics</li>
+            <li>IBM TBSM, TADMM</li>
+            <li>IBM ITM (Tivoli Performance Management)</li>
+            <li>IBM APM (Application performance management)</li>
+            <li>ISTQB Foundation</li>
+            <li>AWS (Certified Cloud Practitioner, Security Fundamentals, AWS Database offering)</li>
+            <li>AWS introduction to Data Analytics, Machine Learning, Deep Learning</li>
         </ul>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2>Projects & Internships</h2>
-        <h3>Graduation Project: The Eternal Tower</h3>
-        <p>Developed an AI-based online multiplayer game using Unreal Engine 4 and C++.</p>
+    <h2>Languages</h2>
+    <div class="languages">
+        <ul>
+            <li>Arabic (Native Speaker)</li>
+            <li>English (Excellent)</li>
+            <li>German (Fair)</li>
+        </ul>
+    </div>
 
-        <h3>Internships</h3>
+    <h2>Internships</h2>
+    <div class="internships">
         <ul>
             <li>Java Developer Internship at Nafham (Jan 2017 - May 2017)</li>
-            <li>Embedded Systems Testing Internship (June 2017 - July 2018)</li>
+            <li>Embedded systems testing internship (June 2017 - July 2018)</li>
             <li>Web Designer at Nafham (May 2016 - October 2016)</li>
-            <li>Web Developer at IBM (May 2015 - September 2015)</li>
+            <li>Web developer at IBM (May 2015 - September 2015)</li>
         </ul>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2>Languages</h2>
+    <h2>Graduation Project</h2>
+    <div class="projects">
+        <h3>THE ETERNAL TOWER (AI Multiplayer Online Game)</h3>
+        <p>The eternal tower game is an online multiplayer game developed by UE04 (unreal game engine) using C++ based on the concepts of Artificial intelligence theories and game theory.</p>
+    </div>
+
+    <h2>Additional Skills</h2>
+    <div class="skills">
         <ul>
-            <li>Arabic: Native</li>
-            <li>English: Excellent</li>
-            <li>German: Fair</li>
+            <li>Problem Solving</li>
+            <li>Troubleshooting</li>
+            <li>Flexibility & Cooperation</li>
         </ul>
-    </section>
-
+    </div>
 </body>
 </html>
