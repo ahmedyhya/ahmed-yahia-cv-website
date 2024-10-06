@@ -59,10 +59,16 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         .work-experience:hover, .education:hover, .skills:hover, .certificates:hover, .languages:hover, .internships:hover, .projects:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .work-experience h3, .education h3 {
             margin-bottom: 5px;
@@ -73,6 +79,17 @@
         }
         ul {
             padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 5px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        ul li:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        ul li:nth-child(even) {
+            animation-delay: 0.4s;
         }
         @media (max-width: 600px) {
             body {
