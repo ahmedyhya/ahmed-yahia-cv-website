@@ -1,249 +1,923 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Yahia - CV</title>
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --background-color: #ecf0f1;
-            --text-color: #34495e;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: var(--background-color);
-            animation: fadeIn 1s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        h1, h2 {
-            color: var(--secondary-color);
-        }
-        h1 {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            animation: slideInFromLeft 1s ease-out;
-        }
-        @keyframes slideInFromLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        h2 {
-            margin-top: 30px;
-            animation: slideInFromRight 1s ease-out;
-        }
-        @keyframes slideInFromRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        .contact-info {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-out;
-        }
-        .work-experience, .education, .skills, .certificates, .languages, .internships, .projects {
-            margin-bottom: 30px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: slideUp 0.5s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .work-experience:hover, .education:hover, .skills:hover, .certificates:hover, .languages:hover, .internships:hover, .projects:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        .work-experience h3, .education h3 {
-            margin-bottom: 5px;
-            color: var(--primary-color);
-        }
-        .work-experience p, .education p {
-            margin-top: 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 5px;
-            opacity: 0;
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-        ul li:nth-child(odd) {
-            animation-delay: 0.2s;
-        }
-        ul li:nth-child(even) {
-            animation-delay: 0.4s;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed Yahia — Observability Consultant & Solutions Architect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #0D1B2A;
+      --navy2:   #132237;
+      --accent:  #1A6FA8;
+      --gold:    #C8A84B;
+      --gold2:   #e6c96a;
+      --white:   #FFFFFF;
+      --off:     #F4F7FB;
+      --dark:    #1C2533;
+      --body:    #3D4A5C;
+      --mid:     #6B7A8D;
+      --border:  #D6E4F0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--body);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── HERO HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #0e2340 60%, #1a3a5c 100%);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid var(--gold);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold2), var(--gold), transparent);
+    }
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 56px 40px 48px;
+      display: flex;
+      align-items: center;
+      gap: 44px;
+    }
+    .hero-photo {
+      width: 148px;
+      height: 185px;
+      border-radius: 6px;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--gold);
+      flex-shrink: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .hero-text { flex: 1; }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .hero-titles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .hero-titles span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .hero-titles .sep { color: rgba(255,255,255,0.3); }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 4px;
+    }
+    .contact-bar a, .contact-bar span {
+      font-size: 0.83rem;
+      color: #B8D4EC;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .contact-bar a:hover { color: var(--gold2); }
+    .contact-bar .icon { font-size: 0.9rem; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy2);
+      border-bottom: 1px solid rgba(200,168,75,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-inner a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      padding: 14px 18px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-inner a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    /* ── SECTION ── */
+    section {
+      margin-top: 60px;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    section.visible { opacity: 1; transform: translateY(0); }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .section-rule {
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(26,111,168,0.15) 100%);
+      margin-bottom: 28px;
+    }
+
+    /* ── SUMMARY CARD ── */
+    .summary-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,168,75,0.2);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 24px 28px;
+    }
+    .summary-card p {
+      font-size: 0.94rem;
+      color: #8fa8c0;
+      line-height: 1.8;
+    }
+
+    /* ── JOB ENTRY ── */
+    .job { margin-bottom: 36px; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .job-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .job-period {
+      font-size: 0.8rem;
+      color: var(--mid);
+      font-style: italic;
+      font-weight: 300;
+    }
+    .job-company {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .job-bullets {
+      list-style: none;
+      padding: 0;
+    }
+    .job-bullets li {
+      font-size: 0.88rem;
+      color: #8fa8c0;
+      padding: 5px 0 5px 22px;
+      position: relative;
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .job-bullets li:last-child { border-bottom: none; }
+    .job-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .job-bullets li.highlight {
+      color: #c5d8ea;
+      font-weight: 500;
+    }
+
+    /* ── PROJECTS BLOCK ── */
+    .projects-block {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(26,111,168,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 4px 4px 0;
+    }
+    .projects-block h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .project-item { margin-bottom: 14px; }
+    .project-label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+    .project-label span { color: var(--white); }
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--mid);
+      font-style: italic;
+      line-height: 1.55;
+    }
+    .market-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(200,168,75,0.15);
+      color: var(--gold2);
+      border: 1px solid rgba(200,168,75,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── JOB DIVIDER ── */
+    .job-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 32px 0;
+    }
+
+    /* ── EDU GRID ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .edu-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 20px 22px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .edu-card:hover { border-top-color: var(--gold); transform: translateY(-3px); }
+    .edu-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.96rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .edu-card .school { font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+    .edu-card .meta { font-size: 0.78rem; color: var(--mid); }
+
+    /* ── SKILLS ── */
+    .skill-group { margin-bottom: 16px; }
+    .skill-group-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-tag {
+      font-size: 0.77rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 3px;
+      background: rgba(26,111,168,0.15);
+      color: #9ec8e8;
+      border: 1px solid rgba(26,111,168,0.3);
+      transition: background 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { background: rgba(200,168,75,0.15); color: var(--gold2); border-color: rgba(200,168,75,0.4); }
+    .skill-tag.gold {
+      background: rgba(200,168,75,0.12);
+      color: var(--gold2);
+      border-color: rgba(200,168,75,0.35);
+    }
+
+    /* ── CERTS ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .cert-group h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(26,111,168,0.3);
+    }
+    .cert-group ul { list-style: none; padding: 0; }
+    .cert-group ul li {
+      font-size: 0.83rem;
+      color: #8fa8c0;
+      padding: 5px 0 5px 18px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.5;
+    }
+    .cert-group ul li:last-child { border-bottom: none; }
+    .cert-group ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      font-size: 0.6rem;
+      color: var(--gold);
+      top: 7px;
+    }
+    .cert-group ul li.rcpe { color: #c5d8ea; font-weight: 500; }
+
+    /* ── LANG ROW ── */
+    .lang-row {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .lang-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lang-name {
+      font-weight: 600;
+      color: var(--white);
+      font-size: 0.9rem;
+      min-width: 70px;
+    }
+    .lang-level {
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+    .lang-bar {
+      width: 100px;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .lang-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      border-radius: 2px;
+    }
+
+    /* ── INTERNSHIPS ── */
+    .intern-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .intern-list li {
+      font-size: 0.85rem;
+      color: #8fa8c0;
+      padding: 10px 14px 10px 28px;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border-radius: 3px;
+      border-left: 2px solid rgba(26,111,168,0.4);
+    }
+    .intern-list li::before {
+      content: '—';
+      position: absolute;
+      left: 10px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── GRADUATION PROJECT ── */
+    .project-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,168,75,0.2);
+      border-radius: 4px;
+      padding: 22px 26px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .project-card .icon-box {
+      width: 44px;
+      height: 44px;
+      background: rgba(200,168,75,0.15);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .project-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .project-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(200,168,75,0.2);
+      text-align: center;
+      padding: 28px 40px;
+      font-size: 0.75rem;
+      color: var(--mid);
+      background: var(--navy2);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .hero-inner { flex-direction: column; align-items: flex-start; padding: 36px 20px 32px; gap: 24px; }
+      .hero-text h1 { font-size: 2rem; }
+      main { padding: 0 20px 60px; }
+      .nav-inner { padding: 0 20px; }
+      .edu-grid, .cert-grid, .intern-list { grid-template-columns: 1fr; }
+      .job-header { flex-direction: column; gap: 4px; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Ahmed Yahia</h1>
-    <div class="contact-info">
-        <p>Observability Consultant and System Architect</p>
-        <p>Email: ahmedyhya8594@gmail.com</p>
-        <p>Phone: KSA +9665759656927</p>
+
+  <!-- ── HEADER ─────────────────────────────────────── -->
+  <header>
+    <div class="hero-inner">
+      <img class="hero-photo" src="https://ahmedyhya.github.io/ahmed-yahia-cv-website/photo.png"
+           onerror="this.style.display='none'" alt="Ahmed Yahia">
+      <div class="hero-text">
+        <h1>Ahmed Yahia</h1>
+        <div class="hero-titles">
+          <span>Observability Consultant</span>
+          <span class="sep">·</span>
+          <span>Solutions Architect</span>
+          <span class="sep">·</span>
+          <span>ITOM Specialist</span>
+        </div>
+        <div class="contact-bar">
+          <span><span class="icon">📍</span> KSA, Riyadh</span>
+          <a href="tel:+966575965692"><span class="icon">📞</span> +966 575 965 6927</a>
+          <a href="mailto:ahmedyhya8594@gmail.com"><span class="icon">✉</span> ahmedyhya8594@gmail.com</a>
+          <a href="https://ahmedyhya.github.io/ahmed-yahia-cv-website/" target="_blank"><span class="icon">🌐</span> ahmedyhya.github.io/ahmed-yahia-cv-website</a>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <h2>Field of Experience</h2>
-    <p>As a Solutions Architect and Monitoring Consultant, I design and implement Monitoring, Observability, and Automation solutions, creating High-Level and Low-Level Designs (HLD/LLD) to ensure comprehensive management across large distributed IT environments. My expertise includes tools like NPM, APM, and Visualization Portals from various vendors such as IBM, Microfocus, Zabbix, Cribl, and Riverbed where I deliver customized solutions, handle customer requests, and manage architecture integrations, upgrades, and migrations to support business growth while ensuring smooth IT operations management.</p>
+  <!-- ── NAV ────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#summary">Summary</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#languages">Languages</a>
+      <a href="#internships">Internships</a>
+      <a href="#project">Project</a>
+    </div>
+  </nav>
 
-    <h2>Work Experience</h2>
-    <div class="work-experience">
-        <h3>Riverbed Monitoring Consultant</h3>
-        <p>Riverbed | February 2024 - Present</p>
-        <ul>
-            <li>Implementation of Riverbed Monitoring Tools</li>
-            <li>Administration and Tool Management</li>
-            <li>Dashboard Creation and Monitoring</li>
-            <li>Troubleshooting and Incident Management</li>
-            <li>Customer Support and Consultation</li>
-            <li>Tools Integration and Automation</li>
+  <!-- ── MAIN ───────────────────────────────────────── -->
+  <main>
+
+    <!-- SUMMARY -->
+    <section id="summary">
+      <p class="section-title">Professional Summary</p>
+      <div class="section-rule"></div>
+      <div class="summary-card">
+        <p>Results-driven Observability Consultant and Solutions Architect with <strong style="color:#c5d8ea">9+ years</strong> of enterprise IT experience, specialising in full-stack Monitoring, Observability, and AIOps-driven Automation across mission-critical distributed environments. Proven ability to architect and deliver end-to-end APM and NPM solutions — from High-Level Design (HLD) to Low-Level Design (LLD) — serving top-tier organisations across KSA and the wider MENA and Africa regions. Deep hands-on expertise across vendors including <strong style="color:#c5d8ea">Riverbed, IBM, Dynatrace, Microfocus, Zabbix, Cribl, and AppDynamics</strong>. Experienced in building end-to-end AIOps systems with auto-remediation, OpenTelemetry-based observability pipelines, and multi-market enterprise architecture across six Vodacom African markets. Recognised for reducing MTTR, driving zero-touch operations, and enabling data-driven IT decision-making through scalable observability architectures.</p>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section id="experience">
+      <p class="section-title">Work Experience</p>
+      <div class="section-rule"></div>
+
+      <!-- RIVERBED -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Riverbed Monitoring Consultant</span>
+          <span class="job-period">Feb 2024 – Present</span>
+        </div>
+        <div class="job-company">RIVERBED · Riyadh, KSA</div>
+        <ul class="job-bullets">
+          <li class="highlight">Deliver end-to-end APM and NPM monitoring using the full Riverbed observability suite — NetIM, NetProfiler, AppResponse, APM, Portal, and EUEM — across complex multi-tenant enterprise environments.</li>
+          <li>Administer and optimise NPM/APM monitoring infrastructure ensuring continuous high availability, full observability coverage across all network and application tiers, and peak performance of all components.</li>
+          <li>Design and build executive-grade real-time dashboards in NetProfiler, AppResponse, and Portal, surfacing packet-level analytics, application latency, network performance KPIs, and end-user experience (EUEM) metrics.</li>
+          <li>Act as the primary L3/SME escalation point for critical incidents — conducting deep-dive Root Cause Analysis (RCA) and driving measurable MTTR reductions across customer environments.</li>
+          <li>Architect and implement integrations between Riverbed tools and ITSM/ITOM platforms (ServiceNow, Cribl), enabling automated event correlation, alert enrichment, and reporting workflows.</li>
+          <li>Consult directly with enterprise clients, translating complex business requirements into scalable observability strategies and actionable monitoring roadmaps.</li>
         </ul>
-    </div>
+        <div class="projects-block">
+          <h4>★ Key Client Projects</h4>
+          <div class="project-item">
+            <div class="project-label">Project 1 — <span>King Faisal Specialist Hospital & Research Centre (KFSHRC)</span></div>
+            <div class="project-desc">End-to-end Riverbed observability deployment covering full APM and NPM monitoring across the hospital's enterprise IT infrastructure — ensuring SLA compliance, clinical application availability, and real-time network visibility.</div>
+          </div>
+          <div class="project-item">
+            <div class="project-label">Project 2 — <span>King Salman Global Academy for Arabic Language (KSGAAL)</span></div>
+            <div class="project-desc">Full deployment and configuration of the Riverbed monitoring suite with end-to-end APM and NPM visibility, delivering real-time performance dashboards and proactive alerting across KSGAAL's digital infrastructure.</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="work-experience">
-        <h3>Observability Solution Architect</h3>
-        <p>Vodafone Intelligent Solutions | December 2021 - January 2024</p>
-        <ul>
-            <li>Delivered High level and Low level design documents for monitoring, observability, and automation projects</li>
-            <li>Acted as subject matter expert for implementation and delivery teams</li>
-            <li>Drove development of new capabilities for IT Operations</li>
-            <li>Explored new IT Technologies such as Observability and Automatic correlation</li>
-            <li>Worked with IT Vendors on POC's and defining acceptance criteria for management tools</li>
+      <div class="job-divider"></div>
+
+      <!-- VODAFONE -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Observability Solution Architect</span>
+          <span class="job-period">Dec 2021 – Jan 2024</span>
+        </div>
+        <div class="job-company">VODAFONE INTELLIGENT SOLUTIONS (VOIS) · Multi-Market: Africa & MENA</div>
+        <ul class="job-bullets">
+          <li class="highlight">Lead end-to-end Monitoring and Observability Solution Architecture across six Vodacom African markets — South Africa, Tanzania, DRC, Mozambique, Lesotho, and Kenya — owning full HLD/LLD design, delivery governance, and multi-market stakeholder alignment.</li>
+          <li>Architect and deliver a fully integrated end-to-end AIOps system spanning monitoring, observability, ITSM integration, and auto-remediation — enabling closed-loop incident management and significantly reducing MTTR at enterprise scale across all Vodacom markets.</li>
+          <li>Build auto-remediation pipelines integrating monitoring platforms with ITSM and automation tools to automatically detect, correlate, and resolve incidents without human intervention — achieving true NoOps capabilities.</li>
+          <li>Deploy, configure, and administer Dynatrace — delivering full-stack APM, Infrastructure Monitoring, Real User Monitoring (RUM), Smartscape topology mapping, and automated application dependency discovery at scale.</li>
+          <li>Design and publish Dynatrace dashboards and management zones translating raw telemetry into actionable performance insights and SLA reporting for Business and Operations stakeholders.</li>
+          <li>Govern end-to-end project lifecycle ensuring full compliance with Vodafone global technology standards, SLA requirements, and documentation governance frameworks across all local markets.</li>
+          <li>Function as SME for observability platforms, guiding implementation and delivery teams across all six markets on best practices, tooling decisions, and integration patterns.</li>
         </ul>
-    </div>
+        <div class="projects-block">
+          <h4>★ Key Strategic Initiatives</h4>
+          <div class="project-item">
+            <div class="project-label">Initiative 1 — <span>OpenTelemetry Implementation — Vodafone × Datadog</span></div>
+            <div class="project-desc">Co-led enterprise OpenTelemetry adoption in collaboration with the Datadog team — standardising telemetry collection (traces, metrics, logs) across distributed services and enabling vendor-agnostic observability pipelines across all markets.</div>
+          </div>
+          <div class="project-item">
+            <div class="project-label">Initiative 2 — <span>Automatic Event Correlation Engine</span></div>
+            <div class="project-desc">Collaborated with the Vodafone analytics team to design and build a proprietary ML-driven Automatic Event Correlation tool — reducing alert noise, surfacing root-cause events faster, and feeding correlated incidents directly into the AIOps auto-remediation pipeline.</div>
+          </div>
+          <div class="project-item">
+            <div class="project-label">Initiative 3 — <span>Event Management & Universal Agent Acceptance Criteria</span></div>
+            <div class="project-desc">Architected the Vodafone-wide Event Management Success Criteria and Universal Agent Acceptance Criteria — a governance framework defining technical and operational requirements any monitoring vendor must satisfy to be onboarded into Vodafone's observability ecosystem.</div>
+          </div>
+          <div class="project-item">
+            <div class="project-label">Market Coverage</div>
+            <div class="market-chips">
+              <span class="chip">🇿🇦 South Africa</span>
+              <span class="chip">🇹🇿 Tanzania</span>
+              <span class="chip">🇨🇩 DRC</span>
+              <span class="chip">🇲🇿 Mozambique</span>
+              <span class="chip">🇱🇸 Lesotho</span>
+              <span class="chip">🇰🇪 Kenya</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="work-experience">
-        <h3>ITOM Consultant</h3>
-        <p>Saudi Basic Industries Corporation | August 2019 - December 2021</p>
-        <ul>
-            <li>Operation Support L2 engineer in SABIC, MEA IOC</li>
-            <li>Created custom monitoring dashboards for Business and Operational Teams</li>
-            <li>Managed classification, investigation, and resolution of IT incidents</li>
-            <li>Participated in monitoring and observability POC's as a service owner</li>
+      <div class="job-divider"></div>
+
+      <!-- SABIC -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">ITOM Consultant</span>
+          <span class="job-period">Aug 2019 – Dec 2021</span>
+        </div>
+        <div class="job-company">SAUDI BASIC INDUSTRIES CORPORATION (SABIC) · Riyadh, KSA</div>
+        <ul class="job-bullets">
+          <li class="highlight">Operate as an L2 ITOM engineer within SABIC's MEA Infrastructure Operations Center (IOC), delivering end-to-end APM and NPM monitoring — covering Application Performance, Database, Infrastructure, Response Time, Synthetic/Proactive Monitoring, and SLA tracking.</li>
+          <li>Build and maintain custom observability dashboards for Business and Operations stakeholders, enabling proactive, data-driven IT decision-making.</li>
+          <li>Research and implement automated Application Dependency Mapping (ADM) and configuration auditing solutions to enhance CMDB accuracy and reduce manual effort.</li>
+          <li>Triage, investigate, and resolve high-priority IT incidents using ITIL-based Problem Management practices, minimising business impact.</li>
+          <li>Manage the full event lifecycle — data modelling, real-time policy execution, alert enrichment — within IBM Netcool/OmniBus and Impact to improve signal-to-noise ratio.</li>
+          <li>Deliver structured KT sessions for IT administrators, upskilling teams on IBM monitoring platforms and ITIL best practices.</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="work-experience">
-        <h3>ITOM Engineer</h3>
-        <p>Outsourced from Fingerprint Consultancy in Tauwnyia Insurance Company | January 2018 - July 2019</p>
-        <ul>
-            <li>Responsible for the implementation of the end-to-end IBM monitoring project</li>
-            <li>Created custom monitoring dashboards</li>
-            <li>Managed classification, investigation, and resolution of IT incidents</li>
-            <li>Participated in Incident Management and Problem Management processes</li>
-            <li>Delivered knowledge transfer sessions for IT administrators</li>
+      <div class="job-divider"></div>
+
+      <!-- TAWUNIYA -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">ITOM Engineer</span>
+          <span class="job-period">Jan 2018 – Jul 2019</span>
+        </div>
+        <div class="job-company">TAWUNIYA INSURANCE COMPANY · Riyadh, KSA (via Fingerprint Consultancy)</div>
+        <ul class="job-bullets">
+          <li class="highlight">Lead the end-to-end implementation of IBM's enterprise monitoring stack, delivering full APM and NPM coverage — spanning Application Performance, Database, Infrastructure, Response Time, Synthetic Playback, Network Monitoring, and SLA compliance.</li>
+          <li>Design and deliver custom observability dashboards for Business Intelligence and IT Operations teams, improving visibility and reducing incident response time.</li>
+          <li>Implement automated application dependency discovery and configuration auditing frameworks, supporting CMDB integrity and change management workflows.</li>
+          <li>Manage the full incident lifecycle — classification, RCA, and resolution — for infrastructure issues affecting core insurance services, applying ITIL best practices.</li>
+          <li>Deliver structured Knowledge Transfer sessions for IT administrators, building internal capability on IBM APM and monitoring platforms.</li>
         </ul>
-    </div>
+      </div>
+    </section>
 
-    <h2>Education</h2>
-    <div class="education">
-        <h3>Bachelor of Computer Engineering</h3>
-        <p>Cairo University | 2012 - 2017</p>
-        <p>Cumulative score: Very Good</p>
-    </div>
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-title">Education</p>
+      <div class="section-rule"></div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>Bachelor of Computer Engineering</h3>
+          <div class="school">Cairo University</div>
+          <div class="meta">2012 – 2017 · Cumulative Score: Very Good</div>
+        </div>
+        <div class="edu-card">
+          <h3>Secondary School</h3>
+          <div class="school">El-Motafawqeen Language High School</div>
+          <div class="meta">2009 – 2012 · Score: 407/410 (99.6%)</div>
+        </div>
+      </div>
+    </section>
 
-    <div class="education">
-        <h3>High School</h3>
-        <p>El-Motafawqeen Language High School | 2009 - 2012</p>
-        <p>Score: 407/410 (99.6%)</p>
-    </div>
+    <!-- SKILLS -->
+    <section id="skills">
+      <p class="section-title">Technical Skills</p>
+      <div class="section-rule"></div>
 
-    <h2>Skills</h2>
-    <div class="skills">
-        <ul>
-            <li>ITOM (IT Operation Management) and IT Monitoring using IBM, Microfocus, Zabbix, AppDynamics</li>
-            <li>IT Automation using Selenium, Resolve, and UI-Path tools</li>
-            <li>IT Observability</li>
-            <li>SAFE Agile</li>
-            <li>Cloud management</li>
-            <li>Problem and Incident Management</li>
-            <li>Data and Log Analytics using IBM tools & Splunk</li>
-            <li>Programming (C++, C#, C, Python, JS, TS)</li>
-            <li>QA and QC</li>
-            <li>Game development (OpenCV) & Image processing</li>
-            <li>Linux, Windows administration</li>
-            <li>SQL, DB2 administration</li>
-            <li>Teaching and Training</li>
-        </ul>
-    </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Observability & ITOM</div>
+        <div class="skill-tags">
+          <span class="skill-tag gold">Riverbed</span>
+          <span class="skill-tag gold">IBM</span>
+          <span class="skill-tag gold">Dynatrace</span>
+          <span class="skill-tag gold">Microfocus</span>
+          <span class="skill-tag">Zabbix</span>
+          <span class="skill-tag">AppDynamics</span>
+          <span class="skill-tag">Cribl</span>
+          <span class="skill-tag">IBM Instana</span>
+        </div>
+      </div>
 
-    <h2>Certificates</h2>
-    <div class="certificates">
-        <ul>
-            <li>Microfocus NNMI, NPS, OBM, APM, OO</li>
-            <li>Zabbix Fundamentals</li>
-            <li>Cribl Admin and user for Observability</li>
-            <li>UI-PATH RPA Solutions architect Certificate</li>
-            <li>TOGAF fundamentals certified</li>
-            <li>IELTS (score 7)</li>
-            <li>SAFE Agile Certified</li>
-            <li>IMT advanced Diploma for Embedded Systems</li>
-            <li>IBM Netcool/OmniBus (Omnibus Core, Impact, WebGUI)</li>
-            <li>IBM Operation Analytics</li>
-            <li>IBM TBSM, TADMM</li>
-            <li>IBM ITM (Tivoli Performance Management)</li>
-            <li>IBM APM (Application performance management)</li>
-            <li>ISTQB Foundation</li>
-            <li>AWS (Certified Cloud Practitioner, Security Fundamentals, AWS Database offering)</li>
-            <li>AWS introduction to Data Analytics, Machine Learning, Deep Learning</li>
-        </ul>
-    </div>
+      <div class="skill-group" style="margin-top:16px">
+        <div class="skill-group-label">Monitoring Disciplines</div>
+        <div class="skill-tags">
+          <span class="skill-tag gold">End-to-End APM</span>
+          <span class="skill-tag gold">End-to-End NPM</span>
+          <span class="skill-tag gold">AIOps & Auto-Remediation</span>
+          <span class="skill-tag">OpenTelemetry (OTel)</span>
+          <span class="skill-tag">Real User Monitoring (RUM)</span>
+          <span class="skill-tag">Synthetic/Proactive Monitoring</span>
+          <span class="skill-tag">Infrastructure Monitoring</span>
+          <span class="skill-tag">EUEM</span>
+          <span class="skill-tag">SLA/SLO Management</span>
+          <span class="skill-tag">Log Analytics</span>
+        </div>
+      </div>
 
-    <h2>Languages</h2>
-    <div class="languages">
-        <ul>
-            <li>Arabic (Native Speaker)</li>
-            <li>English (Excellent)</li>
-            <li>German (Fair)</li>
-        </ul>
-    </div>
+      <div class="skill-group" style="margin-top:16px">
+        <div class="skill-group-label">Architecture & Design</div>
+        <div class="skill-tags">
+          <span class="skill-tag gold">HLD / LLD</span>
+          <span class="skill-tag gold">TOGAF Enterprise Architecture</span>
+          <span class="skill-tag">ITOM/ITSM Frameworks</span>
+          <span class="skill-tag">ITIL-based Operations</span>
+          <span class="skill-tag">Zero-Touch / NoOps Automation</span>
+          <span class="skill-tag">CMDB & Dependency Mapping</span>
+          <span class="skill-tag">Event Correlation Design</span>
+        </div>
+      </div>
 
-    <h2>Internships</h2>
-    <div class="internships">
-        <ul>
-            <li>Java Developer Internship at Nafham (Jan 2017 - May 2017)</li>
-            <li>Embedded systems testing internship (June 2017 - July 2018)</li>
-            <li>Web Designer at Nafham (May 2016 - October 2016)</li>
-            <li>Web developer at IBM (May 2015 - September 2015)</li>
-        </ul>
-    </div>
+      <div class="skill-group" style="margin-top:16px">
+        <div class="skill-group-label">Automation & DevOps</div>
+        <div class="skill-tags">
+          <span class="skill-tag">UI-Path (RPA)</span>
+          <span class="skill-tag">Selenium</span>
+          <span class="skill-tag">Resolve</span>
+          <span class="skill-tag">OpenTelemetry</span>
+          <span class="skill-tag">Datadog Integration</span>
+          <span class="skill-tag">SAFE Agile</span>
+          <span class="skill-tag">AWS Cloud</span>
+          <span class="skill-tag">CI/CD Integration</span>
+        </div>
+      </div>
 
-    <h2>Graduation Project</h2>
-    <div class="projects">
-        <h3>THE ETERNAL TOWER (AI Multiplayer Online Game)</h3>
-        <p>The eternal tower game is an online multiplayer game developed by UE04 (unreal game engine) using C++ based on the concepts of Artificial intelligence theories and game theory.</p>
-    </div>
+      <div class="skill-group" style="margin-top:16px">
+        <div class="skill-group-label">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C++ / C# / C</span>
+          <span class="skill-tag">JavaScript / TypeScript</span>
+          <span class="skill-tag">SQL & DB2</span>
+          <span class="skill-tag">Linux & Windows Administration</span>
+        </div>
+      </div>
+    </section>
 
-    <h2>Additional Skills</h2>
-    <div class="skills">
-        <ul>
-            <li>Problem Solving</li>
-            <li>Troubleshooting</li>
-            <li>Flexibility & Cooperation</li>
-        </ul>
-    </div>
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <p class="section-title">Certifications</p>
+      <div class="section-rule"></div>
+      <div class="cert-grid">
+        <div>
+          <div class="cert-group">
+            <h4>Riverbed (RCPE)</h4>
+            <ul>
+              <li class="rcpe">RCPE Professional – Riverbed NetIM</li>
+              <li class="rcpe">RCPE Professional – Riverbed NetProfiler</li>
+              <li class="rcpe">RCPE Professional – Riverbed AppResponse</li>
+              <li class="rcpe">RCPE Professional – Riverbed APM</li>
+            </ul>
+          </div>
+          <div class="cert-group" style="margin-top:22px">
+            <h4>IBM</h4>
+            <ul>
+              <li>IBM Netcool/OmniBus (Core, Impact, WebGUI)</li>
+              <li>IBM Operation Analytics (Predictive Insights)</li>
+              <li>IBM TBSM & TADMM</li>
+              <li>IBM ITM – Tivoli Performance Management</li>
+              <li>IBM Tivoli Composite Application Manager (ITCAM)</li>
+              <li>IBM APM – Application Performance Management</li>
+              <li>IBM Instana – Real-Time Observability</li>
+            </ul>
+          </div>
+          <div class="cert-group" style="margin-top:22px">
+            <h4>Cloud</h4>
+            <ul>
+              <li>AWS Certified Cloud Practitioner</li>
+              <li>AWS Security Fundamentals & Database</li>
+              <li>AWS Data Analytics, ML & Deep Learning</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="cert-group">
+            <h4>Microfocus</h4>
+            <ul>
+              <li>Microfocus NNMI, NPS, OBM, APM, OO</li>
+            </ul>
+          </div>
+          <div class="cert-group" style="margin-top:22px">
+            <h4>Other Platforms</h4>
+            <ul>
+              <li>Zabbix Fundamentals</li>
+              <li>Cribl Admin & User for Observability</li>
+            </ul>
+          </div>
+          <div class="cert-group" style="margin-top:22px">
+            <h4>Architecture & Agile</h4>
+            <ul>
+              <li>TOGAF Fundamentals (Open Group Architecture Framework)</li>
+              <li>SAFE Agile Certified</li>
+              <li>UI-PATH RPA Solutions Architect</li>
+            </ul>
+          </div>
+          <div class="cert-group" style="margin-top:22px">
+            <h4>Quality & Testing</h4>
+            <ul>
+              <li>ISTQB Foundation</li>
+              <li>IMT Advanced Diploma – Embedded Systems</li>
+            </ul>
+          </div>
+          <div class="cert-group" style="margin-top:22px">
+            <h4>Language</h4>
+            <ul>
+              <li>IELTS – Score 7</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section id="languages">
+      <p class="section-title">Languages</p>
+      <div class="section-rule"></div>
+      <div class="lang-row">
+        <div class="lang-item">
+          <span class="lang-name">Arabic</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:88%"></div></div>
+          <span class="lang-level">Excellent · IELTS 7</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">German</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:35%"></div></div>
+          <span class="lang-level">Fair</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIPS -->
+    <section id="internships">
+      <p class="section-title">Internships</p>
+      <div class="section-rule"></div>
+      <ul class="intern-list">
+        <li>Java Developer — Nafham <em style="color:var(--mid)">(Jan 2017 – May 2017)</em></li>
+        <li>Embedded Systems Testing <em style="color:var(--mid)">(Jun 2017 – Jul 2018)</em></li>
+        <li>Web Designer — Nafham <em style="color:var(--mid)">(May 2016 – Oct 2016)</em></li>
+        <li>Web Developer — IBM <em style="color:var(--mid)">(May 2015 – Sep 2015)</em></li>
+      </ul>
+    </section>
+
+    <!-- GRADUATION PROJECT -->
+    <section id="project">
+      <p class="section-title">Graduation Project</p>
+      <div class="section-rule"></div>
+      <div class="project-card">
+        <div class="icon-box">🎮</div>
+        <div>
+          <h3>The Eternal Tower — AI Multiplayer Online Game</h3>
+          <p>An online multiplayer game built with Unreal Engine 4 (UE04) in C++, designed around artificial intelligence theories and game theory principles. Developed as a graduation project at Cairo University, 2017.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Ahmed Yahia · Observability Consultant & Solutions Architect · KSA, Riyadh</p>
+    <p style="margin-top:6px"><a href="https://ahmedyhya.github.io/ahmed-yahia-cv-website/">ahmedyhya.github.io/ahmed-yahia-cv-website</a></p>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+    // Stagger skill tags
+    document.querySelectorAll('.skill-tags .skill-tag').forEach((tag, i) => {
+      tag.style.transitionDelay = (i * 0.04) + 's';
+      tag.style.opacity = '0';
+      tag.style.transform = 'translateY(8px)';
+      tag.style.transition = 'opacity 0.4s ease, transform 0.4s ease, background 0.2s, color 0.2s';
+    });
+    const tagObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.style.opacity = '1';
+            tag.style.transform = 'translateY(0)';
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('#skills').forEach(s => tagObserver.observe(s));
+  </script>
 </body>
 </html>
